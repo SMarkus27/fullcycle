@@ -1,4 +1,4 @@
-# Go Challenge for FullCycle Course
+# Go Challenge FullCycle Course
 
 ## Overview
 
