@@ -6,14 +6,14 @@ services:
     container_name: app
     build:
       context: node
+      dockerfile: Dockerfile.prod
     networks:
       - nodedb-network
     volumes:
       - ./node:/usr/src/app
     tty: true
-    ports:
-      - "3000:3000"
-
+    expose:
+      - 3000
     depends_on:
       - mysql
 
@@ -28,6 +28,16 @@ services:
     environment:
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root
+
+    networks:
+      - nodedb-network
+
+  nginx:
+    build:
+      context: nginx
+    container_name: nginx
+    ports:
+      - "8080:80"
 
     networks:
       - nodedb-network
