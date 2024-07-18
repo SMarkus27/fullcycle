@@ -2,9 +2,12 @@ FROM node:20.10
 
 WORKDIR /usr/src/app
 
-EXPOSE 3000
+COPY package.json .
+
+RUN npm install
 RUN apt update && apt install -y wget
 
+COPY . .
 
 ENV DOCKERIZE_VERSION v0.7.0
 
@@ -13,4 +16,6 @@ RUN wget -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_
 
 ENTRYPOINT ["dockerize", "-wait", "tcp://mysql:3306", "-timeout", "120s", "docker-entrypoint.sh"]
 
+
+EXPOSE 3000
 CMD [ "node", "index.js" ]
