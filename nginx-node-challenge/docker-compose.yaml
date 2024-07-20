@@ -9,8 +9,8 @@ services:
       dockerfile: Dockerfile.prod
     networks:
       - nodedb-network
-    volumes:
-      - node:/usr/src/app
+#    volumes:
+#      - node:/usr/src/app
     tty: true
     expose:
       - 3000
@@ -45,6 +45,3 @@ services:
 networks:
   nodedb-network:
     driver: bridge
-
-volumes:
-  node:
