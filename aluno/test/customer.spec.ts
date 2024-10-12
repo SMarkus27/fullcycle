@@ -1,5 +1,5 @@
-import {Customer} from "../src/domain/entity/customer";
-import {Address} from "../src/domain/entity/address";
+import {Customer} from "../src/domain/customer/entity/customer";
+import {Address} from "../src/domain/customer/value-object/address";
 
 describe("Customer unit tests", () => {
 

@@ -1,8 +1,8 @@
-import {EventDispatcher} from "../src/domain/event/shared/event-dispatcher";
+import {EventDispatcher} from "../src/domain/@shared/event/event-dispatcher";
 import {
     SendEmailWhenProductIsCreatedHandler
-} from "../src/domain/event/product/handler/send-email-when-product-is-created.handler";
-import {ProductCreatedEvent} from "../src/domain/event/product/product-created.event";
+} from "../src/domain/product/event/handler/send-email-when-product-is-created.handler";
+import {ProductCreatedEvent} from "../src/domain/product/event/product-created.event";
 
 describe("Domain events test", () => {
 

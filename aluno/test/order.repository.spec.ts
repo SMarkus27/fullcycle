@@ -1,17 +1,16 @@
 import {Sequelize} from "sequelize-typescript";
-import {CustomerModel} from "../src/infrastructure/db/sequelize/model/customer.model";
-import {OrderModel} from "../src/infrastructure/db/sequelize/model/order.model";
-import {OrderItemModel} from "../src/infrastructure/db/sequelize/model/orderItem.model";
-import {ProductModel} from "../src/infrastructure/db/sequelize/model/product.model";
-import {CustomerRepository} from "../src/infrastructure/repository/customer";
-import {Customer} from "../src/domain/entity/customer";
-import {Address} from "../src/domain/entity/address";
-import {ProductRepository} from "../src/infrastructure/repository/product";
-import {Product} from "../src/domain/entity/product";
-import {OrderItem} from "../src/domain/entity/orderItem";
-import {Order} from "../src/domain/entity/order";
-import {OrderRepository} from "../src/infrastructure/repository/order";
-import {logger} from "sequelize/types/utils/logger";
+import {CustomerModel} from "../src/infrastructure/customer/repository/sequilize/customer.model";
+import {OrderModel} from "../src/infrastructure/order/repository/sequilize/order.model";
+import {OrderItemModel} from "../src/infrastructure/order/repository/sequilize/orderItem.model";
+import {ProductModel} from "../src/infrastructure/product/repository/sequilize/product.model";
+import {CustomerRepository} from "../src/infrastructure/customer/repository/sequilize/customer.repository";
+import {Customer} from "../src/domain/customer/entity/customer";
+import {Address} from "../src/domain/customer/value-object/address";
+import {ProductRepository} from "../src/infrastructure/product/repository/sequilize/product.repository";
+import {Product} from "../src/domain/product/entity/product";
+import {OrderItem} from "../src/domain/checkout/entity/orderItem";
+import {Order} from "../src/domain/checkout/entity/order";
+import {OrderRepository} from "../src/infrastructure/order/repository/sequilize/order.repository";
 
 describe("Order Repository test", () => {
     let sequelize: Sequelize;

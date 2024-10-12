@@ -1,8 +1,7 @@
 import {Sequelize} from "sequelize-typescript";
-import {ProductModel} from "../src/infrastructure/db/sequelize/model/product.model";
-import {Product} from "../src/domain/entity/product";
-import * as wasi from "node:wasi";
-import {ProductRepository} from "../src/infrastructure/repository/product";
+import {ProductModel} from "../src/infrastructure/product/repository/sequilize/product.model";
+import {Product} from "../src/domain/product/entity/product";
+import {ProductRepository} from "../src/infrastructure/product/repository/sequilize/product.repository";
 
 describe("Product Repository test", () => {
     let sequelize: Sequelize;

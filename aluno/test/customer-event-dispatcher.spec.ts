@@ -1,20 +1,18 @@
-import {EventDispatcher} from "../src/domain/event/shared/event-dispatcher";
+import {EventDispatcher} from "../src/domain/@shared/event/event-dispatcher";
 import {
     SendEmailWhenCustomerIsCreatedHandler
-} from "../src/domain/event/customer/handler/send-email-when-customer-is-created.handler";
-import {
-    SendEmailWhenProductIsCreatedHandler
-} from "../src/domain/event/product/handler/send-email-when-product-is-created.handler";
+} from "../src/domain/customer/event/handler/send-email-when-customer-is-created.handler";
+
 import {
     SendLogWhenCustomerIsCreatedHandler
-} from "../src/domain/event/customer/handler/send-log-when-customer-is-created.handler";
-import {CustomerCreatedEvent} from "../src/domain/event/customer/customer-created.event";
-import {Customer} from "../src/domain/entity/customer";
-import {Address} from "../src/domain/entity/address";
+} from "../src/domain/customer/event/handler/send-log-when-customer-is-created.handler";
+import {CustomerCreatedEvent} from "../src/domain/customer/event/customer-created.event";
+import {Customer} from "../src/domain/customer/entity/customer";
+import {Address} from "../src/domain/customer/value-object/address";
 import {
     SendEmailWhenCustomerAddressChangeHandler
-} from "../src/domain/event/customer/handler/send-email-when-customer-address-change.handler";
-import {CustomerChangeAddressEvent} from "../src/domain/event/customer/customer-change-address.event";
+} from "../src/domain/customer/event/handler/send-email-when-customer-address-change.handler";
+import {CustomerChangeAddressEvent} from "../src/domain/customer/event/customer-change-address.event";
 
 
 describe("Customer events test", () => {
