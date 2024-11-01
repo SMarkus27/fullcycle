@@ -1,5 +1,6 @@
 import {UpdateProductUseCase} from "./update.product.usecase";
 import {ProductFactory} from "../../../domain/product/factory/product.factory";
+import {NotificationError} from "../../../domain/@shared/notification/notification.error";
 
 
 const product = ProductFactory.create("a", "product 1", 100);
@@ -35,13 +36,16 @@ describe("Unit Test for update product use case", () => {
 
     it("should not updated a product when name is missing", async () => {
         const productRepository = MockRepository();
-        input.name = ""
+        productRepository.update.mockImplementation(() => {
+        throw new NotificationError([{context: "product", message: "Name is required!"}])
+        });
 
+        input.name = ""
         const useCase = new UpdateProductUseCase(productRepository);
 
-        await expect(async () => {
-            await useCase.execute(input)
-        }).rejects.toThrow("Name is required!");
+        await expect(   () => {
+            return   useCase.execute(input)
+        }).rejects.toThrow("product: Name is required!");
         input.name = "product 10";
 
     });
@@ -49,13 +53,16 @@ describe("Unit Test for update product use case", () => {
 
     it("should not updated a product when price is negative", async () => {
         const productRepository = MockRepository();
-        input.price = -50
+        productRepository.update.mockImplementation(() => {
+            throw new NotificationError([{context: "product", message: "Price must be greater than zero"}])
+        });
 
+        input.price = -50
         const useCase = new UpdateProductUseCase(productRepository);
 
-        await expect(async () => {
-            await useCase.execute(input)
-        }).rejects.toThrow("Price must be greater than zero");
+        await expect( () => {
+            return useCase.execute(input)
+        }).rejects.toThrow("product: Price must be greater than zero");
         input.price = 50;
 
     });
